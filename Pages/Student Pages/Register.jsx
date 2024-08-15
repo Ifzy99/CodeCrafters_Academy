@@ -5,6 +5,8 @@ import "../Student Pages/Styles/register.css"
 import { useDispatch, useSelector } from "react-redux"
 import { register, reset } from "../../src/features/auth/authSlice"
 import { useNavigate } from "react-router-dom"
+import Spinner from "../../src/components/Spinner"
+
 
 
 
@@ -54,21 +56,20 @@ const Register = () => {
         if(password !== password2){
             toast.error('Passwords do not match')
         }else{
-            const studentData = {
-                name,
-                email,
-                password,
-                phone,
-            }
+            const studentData = {name, email, password,phone,}
             dispatch(register(studentData))
         }
+      }
+
+      if(isLoading){
+        return <Spinner/>
       }
    
   return (
     <>
     <section className='heading'>
         <h1>
-        <FaUser /> Register {student}
+        <FaUser /> Register
         </h1>
         <p>Please create an account</p>
   </section>

@@ -1,9 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from "./authService";
 
+//Get student from localstorage
+const student = JSON.parse(localStorage.getItem('student'));
+
 
 const initialState = {
-    student: null,
+    student: student ? student: null,
     isError: false,
     isSuccess: false,
     isLoading:false,
@@ -16,7 +19,7 @@ export const register = createAsyncThunk("auth/register", async(student, thunkAP
         return await authService.register(student)
     }catch (error){
         console.error("Thunk error:", error);
-        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        const message = (error.response && error.response.data && error.response.data.error) || error.message || error.toString()
 
         return thunkAPI.rejectWithValue(message)
     }
@@ -26,8 +29,19 @@ export const register = createAsyncThunk("auth/register", async(student, thunkAP
 
 // Login Students 
 export const login = createAsyncThunk("auth/login", async(student, thunkAPI) => {
-    console.log(student);
-    
+    try {
+        return await authService.login(student)
+    }catch (error){
+        console.error("Thunk error:", error);
+        const message = (error.response && error.response.data && error.response.data.error) || error.message || error.toString()
+
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+//logout students
+export const logout = createAsyncThunk("auth/logout", async() => {
+    return await authService.logout()
 })
 
 export const authSlice = createSlice({
@@ -42,7 +56,8 @@ export const authSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(register.pending, (state) =>{
+        builder
+        .addCase(register.pending, (state) =>{
             state.isLoading = true
         })
         .addCase(register.fulfilled, (state, action) => {
@@ -54,6 +69,23 @@ export const authSlice = createSlice({
             state.isLoading = false
             state.isError = true
             state.message = action.payload
+            state.student = null
+        })
+        .addCase(login.pending, (state) =>{
+            state.isLoading = true
+        })
+        .addCase(login.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.student = action.payload
+        })
+        .addCase(login.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+            state.student = null
+        })
+        .addCase(logout.fulfilled, (state) => {
             state.student = null
         })
     },
