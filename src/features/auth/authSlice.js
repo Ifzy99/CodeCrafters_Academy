@@ -2,21 +2,21 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from "./authService";
 
 //Get student from localstorage
-const student = JSON.parse(localStorage.getItem('student'));
+const user = JSON.parse(localStorage.getItem('user'));
 
 
 const initialState = {
-    student: student ? student: null,
+    user: user? user: null,
     isError: false,
     isSuccess: false,
     isLoading:false,
     message: "" 
 }
 
-// Register New Student 
-export const register = createAsyncThunk("auth/register", async(student, thunkAPI) => {
+// Register New User (Student/Staff)
+export const register = createAsyncThunk("auth/register", async(user, thunkAPI) => {
     try {
-        return await authService.register(student)
+        return await authService.register(user)
     }catch (error){
         console.error("Thunk error:", error);
         const message = (error.response && error.response.data && error.response.data.error) || error.message || error.toString()
@@ -27,10 +27,10 @@ export const register = createAsyncThunk("auth/register", async(student, thunkAP
     
 })
 
-// Login Students 
-export const login = createAsyncThunk("auth/login", async(student, thunkAPI) => {
+// Login User (Student/Staff)
+export const login = createAsyncThunk("auth/login", async(user, thunkAPI) => {
     try {
-        return await authService.login(student)
+        return await authService.login(user)
     }catch (error){
         console.error("Thunk error:", error);
         const message = (error.response && error.response.data && error.response.data.error) || error.message || error.toString()

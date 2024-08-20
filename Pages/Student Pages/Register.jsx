@@ -27,7 +27,7 @@ const Register = () => {
       const dispatch = useDispatch()
       const navigate = useNavigate()
 
-      const {student, isLoading, isError, isSuccess, message} = useSelector(state => state.auth)
+      const {user, isLoading, isError, isSuccess, message} = useSelector(state => state.auth)
 
       useEffect(() => {
         if (isError) {
@@ -35,13 +35,17 @@ const Register = () => {
         }
 
         //Redirect when logged in
-        if (isSuccess || student) {
-            navigate('/')
+        if (isSuccess || user) {
+          if(user.role === "student"){
+            navigate('./Login.jsx')
+          }else if(user.role === "staff"){
+            navigate("../Staff Pages/LoginStaff.jsx")
+          }
         }
 
         dispatch(reset())
 
-      }, [isError,isLoading,isSuccess, student, message, navigate, dispatch])
+      }, [isError,isLoading,isSuccess, user, message, navigate, dispatch])
 
       const onChange = (e) => {
         setFormData((prevState) => ({
@@ -56,8 +60,8 @@ const Register = () => {
         if(password !== password2){
             toast.error('Passwords do not match')
         }else{
-            const studentData = {name, email, password,phone,}
-            dispatch(register(studentData))
+            const userData = {name, email, password,phone,}
+            dispatch(register(userData))
         }
       }
 

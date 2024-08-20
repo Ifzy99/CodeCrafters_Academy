@@ -1,13 +1,13 @@
 import axios from "axios";
 
 
-const API_URL = "/api/students/"
+const API_URL = "/api/auth/"
 
 //Register
-const register = async (studentData) => {
+const register = async (userData) => {
     try {
 
-        const response = await axios.post(API_URL + "register", studentData);
+        const response = await axios.post(API_URL + "register", userData);
 
         if(response.data){
             localStorage.setItem('student', JSON.stringify(response.data))
@@ -21,10 +21,10 @@ const register = async (studentData) => {
 }
 
 //Login
-const login = async (studentData) => {
+const login = async (userData) => {
     try {
 
-        const response = await axios.post(API_URL + "login", studentData);
+        const response = await axios.post(API_URL + "login", userData);
 
         if(response.data){
             localStorage.setItem('student', JSON.stringify(response.data))
@@ -38,7 +38,7 @@ const login = async (studentData) => {
 }
 
 //Logout student
-const logout = () => localStorage.removeItem("student")
+const logout = () => localStorage.removeItem("user")
 
 const authService = {register,login, logout,}
 
