@@ -26,13 +26,6 @@ li {
   line-height: 2.2;
 }
 
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
-}
 
 .header {
   display: flex;
@@ -93,4 +86,8 @@ li {
   100% {
     transform: rotate(360deg);
   }
+}
+
+@media (max-width: 768px) {
+  
 }

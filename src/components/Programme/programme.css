@@ -1,0 +1,45 @@
+.programme-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  .programme-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .programme-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #2c2c6c;
+  }
+  
+  .programme-item p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .programme-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .programme-item {
+      max-width: 90%;
+    }
+  }
+  

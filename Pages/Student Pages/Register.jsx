@@ -3,7 +3,7 @@ import { FaUser } from "react-icons/fa"
 import { toast } from "react-toastify"
 import "../Student Pages/Styles/register.css"
 import { useDispatch, useSelector } from "react-redux"
-import { register, reset } from "../../src/features/auth/authSlice"
+import { registerStudent, reset } from "../../src/features/auth/authSlice"
 import { useNavigate } from "react-router-dom"
 import Spinner from "../../src/components/Spinner"
 
@@ -35,12 +35,8 @@ const Register = () => {
         }
 
         //Redirect when logged in
-        if (isSuccess || user) {
-          if(user.role === "student"){
-            navigate('./Login.jsx')
-          }else if(user.role === "staff"){
-            navigate("../Staff Pages/LoginStaff.jsx")
-          }
+        if (isSuccess && user && user.role === "student") {
+            navigate("/")
         }
 
         dispatch(reset())
@@ -61,7 +57,7 @@ const Register = () => {
             toast.error('Passwords do not match')
         }else{
             const userData = {name, email, password,phone,}
-            dispatch(register(userData))
+            dispatch(registerStudent(userData))
         }
       }
 

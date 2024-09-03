@@ -6,7 +6,7 @@ import { logout, reset} from '../features/auth/authSlice'
 const Header = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {student} = useSelector((state) => state.auth)
+  const {user} = useSelector((state) => state.auth)
 
   const onLogout = () => {
     dispatch(logout())
@@ -18,10 +18,10 @@ const Header = () => {
   return (
     <header className='header'>
        <div className='logo'>
-         <Link to='/'>CodeCrafters Academy</Link>
+         <Link>CodeCrafters Academy</Link>
        </div>
        <ul>
-       {student ? (
+       {user ? (
          <li>
            <button onClick={onLogout}><FaSignOutAlt/> Logout</button>
          </li>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { FaSignInAlt } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
-import { login, reset } from "../../src/features/auth/authSlice"
+import { loginStudent, reset } from "../../src/features/auth/authSlice"
 import { toast } from "react-toastify"
 import "../Student Pages/Styles/register.css"
 import { useNavigate } from "react-router-dom"
@@ -25,7 +25,7 @@ const Login = () => {
       const dispatch = useDispatch()
       const navigate = useNavigate()
 
-      const {student, isLoading, isError, isSuccess, message} = useSelector(state => state.auth)
+      const {user, isLoading, isError, isSuccess, message} = useSelector(state => state.auth)
 
       useEffect(() => {
         if (isError) {
@@ -33,13 +33,13 @@ const Login = () => {
         }
 
         //Redirect when logged in
-        if (isSuccess || student) {
-            navigate('/')
+        if (isSuccess && user) {
+            navigate('/student/dashboard')
         }
 
         dispatch(reset())
 
-      }, [isError,isLoading,isSuccess, student, message, navigate, dispatch])
+      }, [isError,isLoading,isSuccess, user, message, navigate, dispatch])
 
       const onChange = (e) => {
         setFormData((prevState) => ({
@@ -51,12 +51,12 @@ const Login = () => {
       const onSubmit = (e) => {
         e.preventDefault()
 
-        const studentData = {
+        const userData = {
           email,
           password,
         }
         
-        dispatch(login(studentData))
+        dispatch(loginStudent(userData))
 
       }
 
