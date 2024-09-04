@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { FaSignInAlt } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
 import { loginStudent, reset } from "../../src/features/auth/authSlice"
 import { toast } from "react-toastify"
@@ -68,25 +67,47 @@ const Login = () => {
   return (
     <>
 
-  <section className='form'>
-  <div className="card">
-    <div className="card-header">
-      <div className="text-header"><h1><FaSignInAlt/></h1>Login</div>
+    <div className="regContainer">
+    <div className="registerTxt-section">
+      <div className="registerTxt-content">
+        <img src="logo.png" alt="Logo" className="logo"/>
+        <h1>Welcome to CodeCrafters Admission Portal</h1>
+      </div>
     </div>
-    <div className="card-body">
+    <div className="form-section">
+      <div className="form-header">
+        <img src="logo.png" alt="SCICT" className="mobile-logo" />
+        <div>
+          <h2>CodeCrafters</h2>
+          <p>Admission Portal</p>
+        </div>
+      </div>
+      <h1>Login</h1>
+      <p className="subtitle">Enter your email and password to log in to your admission account</p>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <input required="" className="form-control" name="email" id="email" value={email} type="email" autoComplete="email" onChange={onChange} placeholder="Enter your email"/>
+          <label htmlFor="email">Your email</label>
+          <input type="email" id="email" name="email" autoComplete="email" onChange={onChange} placeholder="example@gmail.com" />
         </div>
         <div className="form-group">
-          <input required="" className="form-control" name="password" id="password" value={password} type="password" autoComplete="new-password" onChange={onChange} placeholder="Enter Password"/>
+          <label htmlFor="password">Password</label>
+          <div className="password-input">
+            <input type="password" id="password" name="password" value={password} autoComplete="new-password" onChange={onChange} placeholder="Password" />
+            <span className="password-toggle">👁️</span>
+          </div>
+          <div className="forgot-password">
+          <a href="/forgot-password">Forgot Password?</a>
         </div>
-        <input type="submit" className="btn" value="submit"/> 
-       </form>
+        </div>
+        <button type="submit" value="submit" className="btn">Sign In →</button>
+      </form>
+      <p className="sign-in-link">
+        <a href="/register">
+        Begin Admission Process
+        </a>
+      </p>
     </div>
   </div>
-  
-  </section>
     </>
   )
 }

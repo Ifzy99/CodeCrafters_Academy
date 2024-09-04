@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { FaUser } from "react-icons/fa"
 import { toast } from "react-toastify"
 import "../Student Pages/Styles/register.css"
 import { useDispatch, useSelector } from "react-redux"
@@ -67,41 +66,60 @@ const Register = () => {
    
   return (
     <>
-    <section className='heading'>
-        <h1>
-        <FaUser /> Register
-        </h1>
-        <p>Please create an account</p>
-  </section>
-
-  <section className='form'>
-  <div className="card">
-    <div className="card-header">
-      <div className="text-header"><h1><FaUser/></h1>Register</div>
+    <div className="regContainer">
+    <div className="registerTxt-section">
+      <div className="registerTxt-content">
+        <img src="logo.png" alt="Logo" className="logo"/>
+        <h1>Welcome to CodeCrafters Admission Portal</h1>
+      </div>
     </div>
-    <div className="card-body">
+    <div className="form-section">
+      <div className="form-header">
+        <img src="logo.png" alt="SCICT" className="mobile-logo" />
+        <div>
+          <h2>CodeCrafters</h2>
+          <p>Admission Portal</p>
+        </div>
+      </div>
+      <h1>Create account for admission</h1>
+      <p className="subtitle">Kindly fill up your details to start admission process.</p>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <input required="" className="form-control" name="name" id="name" value={name} type="text" onChange={onChange} placeholder="Enter your name"/>
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" name="name" value={name}  onChange={onChange} placeholder="Name" />
         </div>
         <div className="form-group">
-          <input required="" className="form-control" name="email" id="email" value={email} type="email" autoComplete="email" onChange={onChange} placeholder="Enter your email"/>
+          <label htmlFor="email">Your email</label>
+          <input type="email" id="email" name="email" autoComplete="email" onChange={onChange} placeholder="example@gmail.com" />
         </div>
         <div className="form-group">
-          <input required="" className="form-control" name="password" id="password" value={password} type="password" autoComplete="new-password" onChange={onChange} placeholder="Enter Password"/>
+          <label htmlFor="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" value={phone}  onChange={onChange} placeholder="+2348000000000" />
         </div>
         <div className="form-group">
-          <input required="" className="form-control" name='password2' id="password2"  value={password2} type="password" autoComplete="new-password" onChange={onChange} placeholder="Confirm password"/>
+          <label htmlFor="password">Password</label>
+          <div className="password-input">
+            <input type="password" id="password" name="password" value={password} autoComplete="new-password" onChange={onChange} placeholder="Password" />
+            <span className="password-toggle">👁️</span>
+          </div>
         </div>
         <div className="form-group">
-          <input required="" className="form-control" name='phone' id="phone"  value={phone} type="number" onChange={onChange} placeholder="Enter your phone number"/>
+          <label htmlFor="confirm password">Confirm Password</label>
+          <div className="password-input">
+            <input type="password" id="password2" name="password2" value={password2}  autoComplete="new-password" onChange={onChange} placeholder="Confirm Password" />
+            <span className="password-toggle">👁️</span>
+          </div>
         </div>
-        <input type="submit" className="btn" value="submit"/> 
-       </form>
+        
+        <button type="submit" value="submit" className="btn">Proceed →</button>
+      </form>
+      <p className="sign-in-link">
+        <a href="/login">
+        Sign in instead
+        </a>
+      </p>
     </div>
   </div>
-  
-  </section>
     </>
   )
 }
