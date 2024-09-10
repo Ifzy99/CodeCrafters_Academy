@@ -1,45 +1,104 @@
-.programme-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
+.programmes-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  color:#3C3D37;  
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.programmes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.programme-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.programme-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%; 
+  margin-bottom: 1rem;
+}
+
+.programme-content {
+  padding: 0;
+  text-align:start;
+  font-family: "Montserrat", sans-serif;
+}
+
+.programme-title {
+  font-size: 1.5rem;
+  color:#3C3D37;  
+  margin: 0.5rem 0;
+  line-height:1.4em;
+}
+
+.programme-description {
+  font-size: 100%;
+  color: #333;
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.5;
+ 
+}
+
+
+/* Large Screen Styles */
+@media (min-width: 992px) {
+  .programmes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .programme-item {
+    align-items: center;
     text-align: center;
   }
-  
+
+  .programme-title {
+    font-size: 1.7rem;
+    font-weight:700;
+    font-size:20px;
+  }
+
+  .programme-description {
+    font-size: 1rem;
+    line-height:1.65rem;
+  }
+}
+
+/* Small Screen Styles */
+@media (max-width: 768px) {
+  .programmes-grid {
+    grid-template-columns: 1fr; /* 1-column layout */
+  }
+
   .programme-item {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    flex: 1;
-    padding: 20px;
     text-align: left;
   }
-  
-  .programme-item h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #2c2c6c;
+
+  .programme-image {
+    width: 100%;
+    height: auto;
   }
-  
-  .programme-item p {
-    font-size: 1em;
-    margin-bottom: 10px;
-    color: #666;
+
+  .programme-title {
+    font-size: 16px;
   }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .programme-list {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .programme-item {
-      max-width: 90%;
-    }
+
+  .programme-description {
+    font-size: 1rem;
   }
-  
+
+  .main-title {
+    font-size: 2rem;
+  }
+}

@@ -1,31 +1,30 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import programmeService from "./programmeService"
+import courseService from "./courseService";
 import { extractErrorMessage } from "../../../utils";
 
 
 const initialState = {
-    programmes:[],
-    programme:{},
+    courses:[],
+    course:{},
     isError: false,
     isSuccess: false,
     isLoading: false,
     message: "" 
 }
 
-// Fetch Programmes
-export const fetchProgrammes = createAsyncThunk('programmes/fetchProgrammes', async (_, thunkAPI) => {
+// Fetch Courses
+export const fetchCourses = createAsyncThunk('courses/fetchCourses', async (_, thunkAPI) => {
     try {
-      const response =  await programmeService.getProgrammes();
+      const response =  await courseService.getCourses();
       return response.data
     } catch (error) {
-      console.error('Error fetching programmes:', error);
+      console.error('Error fetching courses:', error);
       return thunkAPI.rejectWithValue(extractErrorMessage(error));
     }
   });
 
-
-export const programmeSlice = createSlice ({
-    name: "programme",
+  export const courseSlice = createSlice ({
+    name: "course",
     initialState,
     reducers: {
         reset: (state) => {
@@ -38,16 +37,16 @@ export const programmeSlice = createSlice ({
 
         extraReducers: (builder) => {
             builder
-            .addCase(fetchProgrammes.pending, (state) => {
+            .addCase(fetchCourses.pending, (state) => {
               state.isLoading = true;
             })
-            .addCase(fetchProgrammes.fulfilled, (state, action) => {
-              console.log('Payload:', action.payload); // Log the payload
+            .addCase(fetchCourses.fulfilled, (state, action) => {
+              console.log('Payload:', action.payload);
               state.isLoading = false;
               state.isSuccess = true;
-              state.programmes = action.payload;
+              state.courses = action.payload;
             })
-            .addCase(fetchProgrammes.rejected, (state, action) => {
+            .addCase(fetchCourses.rejected, (state, action) => {
               state.isLoading = false;
               state.isError = true;
               state.message = action.payload;
@@ -56,5 +55,5 @@ export const programmeSlice = createSlice ({
 })
 
 
-export const {reset} = programmeSlice.actions
-export default programmeSlice.reducer
+export const {reset} = courseSlice.actions
+export default courseSlice.reducer

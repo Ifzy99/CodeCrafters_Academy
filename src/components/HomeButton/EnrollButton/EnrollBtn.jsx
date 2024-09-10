@@ -1,4 +1,4 @@
-import "../HomeButton/button.css"
+import "../button.css"
 
 const Button = () => {
   return (
