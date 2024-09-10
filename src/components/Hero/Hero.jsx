@@ -10,7 +10,7 @@ const Hero = () => {
         <p>Unleash your full potential at CodeCrafters Academy. Master the latest tech skills and lead the way.</p>
         <div className="hero-buttons">
             <a href="/register">
-              <Button/>
+              <Button>Enroll Now</Button>
             </a>
         </div>
     </div>

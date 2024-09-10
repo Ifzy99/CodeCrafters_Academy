@@ -1,0 +1,71 @@
+.cta-container {
+    background-color: rgba(212, 217, 217, 0.8);
+    color: #333;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    min-height: 400px;
+    font-family: "Montserrat", sans-serif;  
+  }
+  
+  .cta-content {
+    max-width: 800px;
+    text-align: start;
+    padding: 0 5em;
+  }
+  
+  .cta-subtitle {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .cta-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .cta-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 600px;
+  }
+  
+  .cta-button {
+    background-color: #0000CC;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #0000FF;
+  }
+  
+  @media (max-width: 768px) {
+    .cta-content {
+       padding:0;
+      }
+    .cta-title {
+      font-size: 24px;
+      line-height:1.2em;
+      font-weight:700;
+    }
+    
+    .cta-description {
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.6em;
+    font-size: 14px;
+    }
+  }
