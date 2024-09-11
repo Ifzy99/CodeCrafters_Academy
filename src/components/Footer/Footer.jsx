@@ -1,4 +1,5 @@
 import "./footer.css"
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 
 const Footer = () => {
@@ -7,21 +8,27 @@ const Footer = () => {
     <footer className="footer">
     <div className="footer-content">
       <div className="footer-logo">
-        <div className="logo-grid">
-          <div className="logo-square"></div>
-          <div className="logo-diamond"></div>
-          <div className="logo-square"></div>
-          <div className="logo-diamond"></div>
-          <div className="logo-diamond"></div>
-          <div className="logo-diamond"></div>
-          <div className="logo-square"></div>
-          <div className="logo-diamond"></div>
-          <div className="logo-square"></div>
-        </div>
+        <img src="logo.png" alt="Logo" className="footer-logo-img" />
       </div>
       <div className="footer-links">
         <div className="footer-column">
-          <h3>ClosetNow</h3>
+          <h3>CodeCrafters</h3>
+          <div className="social-icons">
+          <a href="#facebook"><FaFacebookF /></a>
+          <a href="#instagram"><FaInstagram /></a>
+          <a href="#linkedin"><FaLinkedinIn /></a>
+          <a href="#youtube"><FaYoutube /></a>
+          <a href="#twitter"><FaTwitter /></a>
+        </div>
+        </div>
+        <div className="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/register">Application Portal</a></li>
+            <li><a href="/login">Student Portal</a></li>
+            <li><a href="">Professional Degree</a></li>
+            <li><a href="">Basic Degree</a></li>
+          </ul>
         </div>
         <div className="footer-column">
           <h3>About Us</h3>
@@ -45,14 +52,16 @@ const Footer = () => {
             <li><a href="#instagram">Instagram</a></li>
             <li><a href="#linkedin">LinkedIn</a></li>
             <li><a href="#youtube">YouTube</a></li>
+            <li><a href="#twitter">Twitter</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div className="footer-bottom">
-      <p>&copy; Copyright ClosetNow</p>
-      <a href="#terms">Terms of Service</a>
+      <div className="footer-bottom-container">
+      <p> Copyright &copy; 2024 | CodeCrafters Academy</p>
       <a href="#top" className="back-to-top">Back to top ↑</a>
+      </div>
     </div>
   </footer>
     </>
