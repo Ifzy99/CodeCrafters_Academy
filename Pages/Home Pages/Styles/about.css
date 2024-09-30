@@ -1,0 +1,161 @@
+/* General styling for the About section */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0;
+    padding:0;
+    font-family:"Montserrat", sans-serif;
+  }
+  
+  .about-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(0,0,0,0.5));
+    padding: 20px;
+  }
+  
+  .logo {
+    max-width: 100px;
+    height: auto;
+  }
+  
+  .mission-vision {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  
+  .mission-vision h3 {
+    margin: 5px 0;
+    /* color:#B99170; */
+    color: rgb(217, 68, 68);
+
+  }
+  
+  .mission-vision p {
+    margin: 0;
+    color: #333;
+}
+  
+  /* Main content */
+  .about-content {
+    padding: 40px 20px;
+    border: 1px solid #ddd;
+    margin: 20px auto;
+    max-width:1200px;
+  }
+  
+  .about-text h2 {
+    color: #333;
+  }
+  
+  .about-text p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  /* Footer */
+  .about-message {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .about-message h4 {
+    margin-bottom: 10px;
+    color: rgb(217, 68, 68); 
+  }
+  
+  .about-message p {
+    color: #333;
+  }
+
+  .core-values-section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .core-values-header {
+    background-color: rgb(207, 204, 204);
+  }
+  
+  .core-values-title {
+    color: rgb(217, 68, 68);
+    padding: 20px;
+    font-size: 1.5rem;
+  }
+  
+  .core-values-body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .core-value {
+    flex-basis: 30%;
+    margin-top: 10px;
+  }
+  
+  .watchword {
+    width: 60%;
+    margin: 50px auto;
+    padding: 3.5em 0;
+    text-align: center;
+  }
+  
+  .watchword-text {
+    padding: 2rem 0;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 2.6rem;
+    font-weight: 300;
+    font-family: 'Lora', sans-serif;
+  }
+  
+  /* Responsive styling for mobile */
+  @media (max-width: 768px) {
+    .about-header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .mission-vision {
+      text-align: center;
+      margin-top: 10px;
+    }
+  
+    .logo {
+      margin-bottom: 10px;
+    }
+  
+    .about-text, .about-message {
+      text-align: center;
+    }
+
+    .core-values-body {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .core-value {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 20px; 
+      }
+    
+      .watchword {
+        width: 100%;
+        padding: 2em 0;
+      }
+    
+      .watchword-text {
+        font-size: 2rem;
+        width: 90%;
+      }
+  }
+  

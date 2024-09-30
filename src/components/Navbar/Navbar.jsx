@@ -30,8 +30,8 @@ const Navbar = () => {
     </div>
     <div className="navbar-center">
       <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-        <li><Link to="/products">Products</Link></li>
-        <li><Link to="/about">About Us</Link></li>
+      <li><Link to="/about">About Us</Link></li>
+        <li><Link to="/products">Programmes</Link></li>
         <li><Link to="/contact">Contact</Link></li>
       </ul>
     </div>
