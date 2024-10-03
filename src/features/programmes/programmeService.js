@@ -9,8 +9,15 @@ const getProgrammes = async () => {
   return response.data;
 };
 
+// Fetch Single Programme
+const getProgramme = async (id) => {
+  const response = await axios.get(API_URL + id);
+  return response.data;
+};
+
 const programmeService = {
   getProgrammes,
+  getProgramme
 };
 
 export default programmeService;

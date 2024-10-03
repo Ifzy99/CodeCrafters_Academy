@@ -5,7 +5,7 @@
     align-items: center;
     background-color:rgba(212, 217, 217, 0.8) ;
     color:#3C3D37;
-    padding: 0.8rem 1rem;
+    padding: 0.1rem 1rem;
     position: relative; 
     z-index: 10; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -95,6 +95,60 @@
     font-size: 1.5rem;
     cursor: pointer;
   }
+
+  /* Dropdown Styles */
+.navbar-center .nav-links .dropdown {
+  position: relative;
+}
+
+.navbar-center .nav-links .dropdown-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-center .nav-links .dropdown-toggle svg {
+  margin-left: 5px;
+}
+
+.navbar-center .nav-links .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: rgba(212, 217, 217, 0.95);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar-center .nav-links .dropdown-menu li {
+  margin: 0;
+}
+
+.navbar-center .nav-links .dropdown-menu a {
+  color: #3C3D37;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.navbar-center .nav-links .dropdown-menu a:hover {
+  background-color: rgba(185, 148, 112, 0.1);
+}
+
+/* Show dropdown on hover for larger screens */
+@media (min-width: 769px) {
+  .navbar-center .nav-links .dropdown:hover .dropdown-menu {
+    display: block;
+}
+}
   
   /* Responsive Styles */
   @media (max-width: 768px) {
@@ -103,14 +157,15 @@
     }
   
     .navbar-center .nav-links.open {
+      background-color: rgba(51, 51, 51, 0.9);
       display: block;
       position: absolute;
-      top: 60px;
+      top: 120px;
       left: 0;
       width: 100%;
-      background-color: rgba(51, 51, 51, 0.9); 
-      text-align: center;
-    }
+      text-align:center;
+  }
+
   
     .navbar-center .nav-links.open li {
       margin: 0.5rem 0;
@@ -133,5 +188,38 @@
     .navbar-right .hamburger-menu {
       display: block;
     }
+
+    
+    .navbar-center .nav-links .dropdown-toggle {
+      width: 100%;
+      justify-content: center;
+      padding: 0.5rem 0;
+      color: #fff;
+  }
+
+  .navbar-center .nav-links .dropdown-menu {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    display: block;
+}
+
+  .navbar-center .nav-links .dropdown-menu.show {
+    display: block;
+  }
+
+  .navbar-center .nav-links .dropdown-menu a {
+    color: #fff;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.navbar-center .nav-links a {
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem 0;
+  display: block;
+}
+
   }
   

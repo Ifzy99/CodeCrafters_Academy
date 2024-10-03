@@ -23,6 +23,17 @@ export const fetchProgrammes = createAsyncThunk('programmes/fetchProgrammes', as
     }
   });
 
+  // Fetch Single Programme
+export const fetchProgramme = createAsyncThunk('programmes/fetchProgramme', async (id, thunkAPI) => {
+  try {
+    const response = await programmeService.getProgramme(id);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching programme:', error);
+    return thunkAPI.rejectWithValue(extractErrorMessage(error));
+  }
+});
+
 
 export const programmeSlice = createSlice ({
     name: "programme",
@@ -48,6 +59,19 @@ export const programmeSlice = createSlice ({
               state.programmes = action.payload;
             })
             .addCase(fetchProgrammes.rejected, (state, action) => {
+              state.isLoading = false;
+              state.isError = true;
+              state.message = action.payload;
+            })
+            .addCase(fetchProgramme.pending, (state) => {
+              state.isLoading = true;
+            })
+            .addCase(fetchProgramme.fulfilled, (state, action) => {
+              state.isLoading = false;
+              state.isSuccess = true;
+              state.programme = action.payload;
+            })
+            .addCase(fetchProgramme.rejected, (state, action) => {
               state.isLoading = false;
               state.isError = true;
               state.message = action.payload;
