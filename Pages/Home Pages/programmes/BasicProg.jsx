@@ -46,7 +46,7 @@ const BasicProg = () => {
     <>
     <Navbar/>
     <div className="prog">
-    <div className="pHeader" style={{backgroundImage: `url(${singleProgramme.photo || "/api/placeholder/1200/600"})`}}>
+    <di v className="pHeader" style={{backgroundImage: `url(${singleProgramme.photo || "/api/placeholder/1200/600"})`}}>
       <div className="overlay"></div>
       <div className="pHeader-content">
         <h1>{singleProgramme.name || " Basic Degree Programme"}</h1>
@@ -55,7 +55,7 @@ const BasicProg = () => {
         <Button>Apply Now!</Button>
         </a>
       </div>
-    </div>
+    </di>
     <div className="info-section">
       <div className="logo-container">
         <img src="/logo.png" alt="CodeCrafters logo" className="logo" />

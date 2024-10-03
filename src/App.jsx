@@ -12,6 +12,7 @@ import Dashboard from '../Pages/Student Pages/Dashboard'
 import ProfessionalProg from '../Pages/Home Pages/programmes/ProfessionalProg'
 import BasicProg from '../Pages/Home Pages/programmes/BasicProg'
 import MastersProg from '../Pages/Home Pages/programmes/MastersProg'
+import Courses from '../Pages/Home Pages/Courses'
 
 
 
@@ -29,6 +30,7 @@ function App() {
               <Route path="/programmes/professional" element={<ProfessionalProg />} />
               <Route path="/programmes/basic" element={<BasicProg/>} />
               <Route path="/programmes/masters" element={<MastersProg/>} />
+              <Route path='/courses' element={<Courses/>} />
               <Route path='/register' element={<Register/>} />
               <Route path='/login' element={<Login/>} />
               <Route path='/test' element={<Test/>} />
